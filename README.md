@@ -6,7 +6,11 @@ Tested in node v8.4.0
 2. rename env file to .env: 
 3. npm run dev
 
-4. to test the api, open postman and set up:
-  * POST: http://127.0.0.1:4000/user/auth
-  * Under the Body tab: mark x-www-form-urlencoded and fill in the parameters to te request
+GET /tasks 
+GET /tasks?quantity=6
+PUT /tasks
+{
+  id: "mongo id generated in get request",
+  title: "task title to mark as completed"
+}
 ```
