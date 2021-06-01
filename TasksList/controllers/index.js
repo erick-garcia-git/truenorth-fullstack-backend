@@ -20,8 +20,7 @@ module.exports = {
       }
       return res.json(response)
     } catch (err) {
-      console.log('err ', err)
-      res.status(400).json({ message: err.message })
+      return res.status(400).json({ message: err.message })
     }
   }
 }

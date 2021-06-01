@@ -1,19 +1,22 @@
-const corser = require('corser');
+const cors = require('cors');
 const express = require('express');
 const app = express();
+
+const corsOptions = {
+  origin: '*' // in production you need to specify the origin url
+}
 
 const server = (dbInstance = null) => {
   //remove x-powered-by from response( this is to improve performance a little bit in the server)
   app.disable('etag').disable('x-powered-by');
-
 
   // parse application/json
   app.use(express.json())
   //initialize body parser to receive parameters within a request
   app.use(express.urlencoded({ extended: true }));
 
-  //enable cors
-  app.use(corser.create());
+  // change this in production to only allow the desired origin
+  app.use(cors(corsOptions));
 
   //pass the sequelize instance through the request object
   if (dbInstance) {

@@ -25,7 +25,7 @@ const getMongoDbConfig = () => {
   const connectionString = `mongodb://${MONGO_DB_USER}:${MONGO_DB_PASSWORD}@localhost:27017/${MONGO_DB_NAME}?authSource=admin&readPreference=primary&appname=MongoDB%20Compass&ssl=false`
   return {
     connectionString: connectionString,
-    configOptions: { useNewUrlParser: true, dbName: MONGO_DB_NAME }
+    configOptions: { useNewUrlParser: true, dbName: MONGO_DB_NAME, useUnifiedTopology: true }
   }
 }
 
